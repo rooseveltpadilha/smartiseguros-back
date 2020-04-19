@@ -8,7 +8,8 @@ const SeguradoraSchema =  new mongoose.Schema({
 
   usuario: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
 
   senha: {
@@ -44,17 +45,7 @@ const SeguradoraSchema =  new mongoose.Schema({
   }],
 
   produtos: [{
-    _id: mongoose.Schema.Types.ObjectId,
-    nome: String,
-    tipo: {
-      saúde: String,
-      viagem: String,
-    },
-    limites: {
-      idade_maxima: Number,
-      idade_minima: Number
-    },
-    custo: Number
+    ref: 'Produtos'
   }]
 });
 

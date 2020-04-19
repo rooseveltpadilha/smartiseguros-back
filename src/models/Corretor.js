@@ -7,7 +7,8 @@ const CorretorSchema =  new mongoose.Schema({
 
   usuario: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
 
   senha: {
@@ -33,6 +34,11 @@ const CorretorSchema =  new mongoose.Schema({
   tempoExperiencia: {
     type: String,
     required: true
+  },
+
+  createdAt: {
+    type: Date,
+    default: Date.now
   },
 
   seguradoras: [{

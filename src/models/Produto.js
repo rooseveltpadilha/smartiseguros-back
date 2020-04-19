@@ -1,20 +1,16 @@
 const mongoose = require('mongoose');
 
-const ProdutosSchema =  new mongoose.Schema({
+const ProdutoSchema =  new mongoose.Schema({
   nome: {
     type: String,
     required: true
   },
+  
   tipo: {
-    saúde: {
-      type: String,
-      required: true
-    },
-    viagem: {
-      type: String,
-      required: true
-    },
+    type: String,
+    required: true
   },
+
   limites: {
     idade_maxima: {
       type: Number,
@@ -31,4 +27,4 @@ const ProdutosSchema =  new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Produtos', ProdutosSchema);
+module.exports = mongoose.model('Produto', ProdutoSchema);
