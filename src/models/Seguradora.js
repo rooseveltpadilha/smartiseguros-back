@@ -1,17 +1,48 @@
 const mongoose = require('mongoose');
+
 const SeguradoraSchema =  new mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
-  nome: String,
-  usuario: String,
-  senha: String,
-  telefone: Number,
-  resumo: String,
-  local: {
-    estado: String,
-    cidade: String,
+  nome: {
+    type: String,
+    required: true
   },
+
+  usuario: {
+    type: String,
+    required: true
+  },
+
+  senha: {
+    type: String,
+    required: true
+  },
+
+  telefone: {
+    type: Number,
+    required: true
+  },
+
+  resumo: {
+    type: String,
+    required: true
+  },
+  
+  estado: {
+    type: String,
+    required: true
+  },
+
+  cidade: {
+    type: String,
+    required: true
+  },
+
   corretoresCadastrados: Number,
-  corretores: [mongoose.Schema.Types.ObjectId],
+
+  corretores: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Corretor'
+  }],
+
   produtos: [{
     _id: mongoose.Schema.Types.ObjectId,
     nome: String,

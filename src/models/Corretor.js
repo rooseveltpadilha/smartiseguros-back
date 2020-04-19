@@ -1,18 +1,44 @@
 const mongoose = require('mongoose');
 const CorretorSchema =  new mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
-  nome: String,
-  usuario: String,
-  senha: String,
-  local: {
-    estado: String,
-    cidade: String,
+  nome: {
+    type: String,
+    required: true
   },
-  resumo: String,
-  data_de_cadastro: Date,
-  tempo_de_exp: String,
-  consultas_oferecidas: Number,
-  seguradoras: [mongoose.Schema.Types.ObjectId],
+
+  usuario: {
+    type: String,
+    required: true
+  },
+
+  senha: {
+    type: String,
+    required: true
+  },
+
+  estado: {
+    type: String,
+    required: true
+  },
+
+  cidade: {
+    type: String,
+    required: true
+  },
+
+  resumo: {
+    type: String,
+    required: true
+  },
+
+  tempoExperiencia: {
+    type: String,
+    required: true
+  },
+
+  seguradoras: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Seguradora'
+  }],
 });
 
 module.exports = mongoose.model('Corretor', CorretorSchema);

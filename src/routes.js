@@ -1,8 +1,9 @@
 const express = require('express');
 const routes = express.Router();
 
-routes.post('/', (req, resp) => {
-  return resp.json(req.body)
-})
+const Corretor = require('./controllers/CorretorController');
+
+routes.get('/corretor', Corretor.index)
+routes.post('/corretor', Corretor.store)
 
 module.exports = routes;
