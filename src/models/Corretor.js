@@ -40,11 +40,6 @@ const CorretorSchema =  new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-
-  seguradoras: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Seguradora'
-  }],
 });
 
 module.exports = mongoose.model('Corretor', CorretorSchema);

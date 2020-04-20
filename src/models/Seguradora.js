@@ -18,7 +18,7 @@ const SeguradoraSchema =  new mongoose.Schema({
   },
 
   telefone: {
-    type: Number,
+    type: String,
     required: true
   },
 
@@ -42,12 +42,8 @@ const SeguradoraSchema =  new mongoose.Schema({
     default: Date.now
   },
 
-  corretores: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Corretor'
-  }],
-
   produtos: [{
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Produto'
   }]
 });

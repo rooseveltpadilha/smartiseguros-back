@@ -20,10 +20,16 @@ const ProdutoSchema =  new mongoose.Schema({
     type: Number,
     required: true
   },
-  
+
   custo: {
     type: Number,
     required: true
+  },
+
+  seguradora: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Seguradora',
+    require: true
   }
 });
 
