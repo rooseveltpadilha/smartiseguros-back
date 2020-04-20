@@ -8,6 +8,7 @@ const app = express();
 mongoose.connect('mongodb+srv://vianna0well:hackgr1d@hackgr1d-nvxw3.mongodb.net/hackgr1d?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true,
 })
 
 app.use(express.json());

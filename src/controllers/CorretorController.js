@@ -2,9 +2,8 @@ const Corretor = require('../models/Corretor')
 
 module.exports = {
   async index(req, resp) {
-    const { user } = req.headers;
+    const users = await Corretor.find({})
 
-    const users = await Corretor.find({ usuario: user })
     return resp.json(users)
   },
 
@@ -16,18 +15,29 @@ module.exports = {
       console.log(`User ${usuario} already exists.`)
       return response.json(userExists)
     }
-
-    const corretor = await Corretor.create({
-      nome, 
-      usuario, 
-      senha, 
-      estado, 
-      cidade, 
-      resumo,
-      tempoExperiencia
-    })
-
-    console.log(`User ${usuario} created with success`);
-    return resp.json(corretor);
+    try{
+      const corretor = await Corretor.create({
+        nome, 
+        usuario, 
+        senha, 
+        estado, 
+        cidade, 
+        resumo,
+        tempoExperiencia
+      })
+  
+      console.log(`User ${usuario} created with success`);
+      return resp.json(corretor);
+    }catch(err) {
+      return resp.status(400).json({ message: err })
+    }
   },
+
+  async delete(req, resp) {
+    const { id } = req.body;
+
+    await Corretor.findByIdAndDelete({ _id: id })
+
+    return resp.json({ message: `Corretor by id:${id} has been removed` })
+  }
 }

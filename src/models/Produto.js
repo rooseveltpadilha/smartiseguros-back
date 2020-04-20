@@ -11,16 +11,16 @@ const ProdutoSchema =  new mongoose.Schema({
     required: true
   },
 
-  limites: {
-    idade_maxima: {
-      type: Number,
-      required: true
-    },
-    idade_minima: {
-      type: Number,
-      required: true
-    }
+  idade_maxima: {
+    type: Number,
+    required: true
   },
+
+  idade_minima: {
+    type: Number,
+    required: true
+  },
+  
   custo: {
     type: Number,
     required: true

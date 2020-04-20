@@ -37,7 +37,10 @@ const SeguradoraSchema =  new mongoose.Schema({
     required: true
   },
 
-  corretoresCadastrados: Number,
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
 
   corretores: [{
     type: mongoose.Schema.Types.ObjectId,
@@ -45,7 +48,7 @@ const SeguradoraSchema =  new mongoose.Schema({
   }],
 
   produtos: [{
-    ref: 'Produtos'
+    ref: 'Produto'
   }]
 });
 
